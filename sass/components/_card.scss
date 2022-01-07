@@ -8,20 +8,29 @@
     font-size: 2rem;
 
     height: 31.25rem;
-    transition: all 0.8s ease-in;
+    transition: all 0.5s ease-in;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     backface-visibility: hidden;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
 
     &--front {
-      background-color: orangered;
+    //   background-color: orangered;
     }
 
     &--back {
-      background-color: green;
       transform: rotateY(180deg);
+
+      &-1 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-secondary-light,
+          $color-secondary-dark
+        );
+      }
     }
   }
 
