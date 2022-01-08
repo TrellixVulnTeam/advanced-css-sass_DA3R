@@ -312,6 +312,67 @@ body {
     font-size: 4rem;
     font-weight: 100; }
 
+.story {
+  width: 75%;
+  margin: 0 auto;
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.65);
+  border-radius: 3px;
+  padding: 4rem;
+  padding-left: 7rem;
+  font-size: 1rem;
+  transform: skewX(-12deg); }
+  .story > * {
+    transform: skewX(12deg); }
+  .story__shape {
+    position: relative;
+    width: 10rem;
+    height: 10rem;
+    float: left;
+    shape-outside: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    transform: translateX(-2.5rem) skewX(12deg); }
+  .story__img {
+    height: 100%;
+    transform: translateX(-2.5rem) scale(1.4);
+    transition: all 0.5s;
+    backface-visibility: hidden; }
+  .story__text {
+    transform: skewX(12deg);
+    font-weight: 400; }
+  .story__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1.125rem;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.5s;
+    backface-visibility: hidden; }
+  .story:hover .story__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%); }
+  .story:hover .story__img {
+    filter: blur(3px) brightness(80%);
+    transform: translateX(-2.5rem) scale(1); }
+
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: 0.2;
+  overflow: hidden; }
+  .bg-video__content {
+    height: 100%;
+    width: 100%;
+    object-fit: cover; }
+
 .header {
   position: relative;
   height: 95vh;
@@ -346,19 +407,19 @@ body {
   .row [class^="col-"] {
     float: left; }
     .row [class^="col-"]:not(:last-child) {
-      margin-right: 10rem; }
+      margin-right: 5rem; }
   .row .col-1-of-2 {
-    width: calc((100% - 10rem) / 2); }
+    width: calc((100% - 5rem) / 2); }
   .row .col-1-of-3 {
-    width: calc((100% - 2 * 10rem) / 3); }
+    width: calc((100% - 2 * 5rem) / 3); }
   .row .col-2-of-3 {
-    width: calc( 2 * ((100% - 2 * 10rem) / 3) + 10rem); }
+    width: calc( 2 * ((100% - 2 * 5rem) / 3) + 5rem); }
   .row .col-1-of-4 {
-    width: calc((100% - 3 * 10rem) / 4); }
+    width: calc((100% - 3 * 5rem) / 4); }
   .row .col-2-of-4 {
-    width: calc( 2 * ((100% - 3 * 10rem) / 4) + 10rem); }
+    width: calc( 2 * ((100% - 3 * 5rem) / 4) + 5rem); }
   .row .col-3-of-4 {
-    width: calc( 3 * ((100% - 3 * 10rem) / 4) + 2 * 10rem); }
+    width: calc( 3 * ((100% - 3 * 5rem) / 4) + 2 * 5rem); }
 
 .section-about {
   background-color: #f7f7f7;
@@ -381,3 +442,7 @@ body {
   background-color: #f7f7f7;
   margin-top: -8rem;
   padding: 17rem 0 2rem 0; }
+
+.section-stories {
+  padding: 7rem 0;
+  position: relative; }
