@@ -12,6 +12,9 @@
     right: 4.5rem;
     border-radius: 50%;
     z-index: 2000;
+    box-shadow: 0 1rem 3rem rgba($color-black, 0.1);
+    text-align: center;
+    cursor: pointer;
   }
 
   &__background {
@@ -27,12 +30,9 @@
     );
     z-index: 1000;
     box-shadow: 0 1rem 3rem rgba($color-black, 0.1);
-    transition: transform .8s cubic-bezier(0.87, 0, 0.13, 1);
+    transition: transform 0.8s cubic-bezier(0.87, 0, 0.13, 1);
 
     // transform: scale(90); Testing
-  }
-
-  &__button {
   }
 
   &__nav {
@@ -41,10 +41,10 @@
     position: fixed;
     top: 0;
     right: 0;
-    z-index: 1100;
+    z-index: 1500;
     opacity: 0;
     width: 0; // To hide navigation
-    transition: all .8s;
+    transition: all 0.8s cubic-bezier(0.87, 0, 0.13, 1);
   }
 
   &__list {
@@ -92,6 +92,7 @@
     }
   }
 
+  // Functionality
   &__checkbox:checked ~ &__background {
     transform: scale(90);
   }
@@ -99,5 +100,57 @@
   &__checkbox:checked ~ &__nav {
     opacity: 1;
     width: 100%;
+  }
+
+  // Icon
+  &__icon {
+    position: relative;
+    margin-top: 1.875rem;
+
+    &,
+    &::before,
+    &::after {
+      width: 1.75rem;
+      height: 2px;
+      background-color: $color-text-gray;
+      display: inline-block;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      transition: all 0.2s;
+    }
+
+    &::before {
+      top: -0.5rem;
+    }
+    &::after {
+      top: 0.5rem;
+    }
+  }
+
+  &__button:hover &__icon::before {
+    top: -0.6rem;
+  }
+
+  &__button:hover &__icon::after {
+    top: 0.6rem;
+  }
+
+  &__chechbox:checked + &__button &__icon {
+    background-color: transparent;
+  }
+
+  &__chechbox:checked + &__button &__icon::before {
+    top: 0;
+    transform: rotate(135deg);
+  }
+
+  &__chechbox:checked + &__button &__icon::after {
+    top: 0;
+    transform: rotate(-135deg);
   }
 }
