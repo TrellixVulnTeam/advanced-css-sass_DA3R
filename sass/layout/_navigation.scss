@@ -26,8 +26,10 @@
       $color-primary-dark
     );
     z-index: 1000;
+    box-shadow: 0 1rem 3rem rgba($color-black, 0.1);
+    transition: transform .8s cubic-bezier(0.87, 0, 0.13, 1);
 
-    transform: scale(90);
+    // transform: scale(90); Testing
   }
 
   &__button {
@@ -35,17 +37,21 @@
 
   &__nav {
     height: 100vh;
-    width: 100%;
+    // width: 100%;
     position: fixed;
     top: 0;
     right: 0;
     z-index: 1100;
+    opacity: 0;
+    width: 0; // To hide navigation
+    transition: all .8s;
   }
 
   &__list {
     @include centerHorVer;
     list-style: none;
     text-align: center;
+    width: 100%;
   }
 
   &__item {
@@ -55,7 +61,7 @@
   &__link {
     &:link,
     &:visited {
-        display: inline-block;
+      display: inline-block;
       font-size: 2rem;
       font-weight: 300;
       padding: 0.65rem 2rem;
@@ -72,9 +78,9 @@
       transition: all 0.4s;
       backface-visibility: hidden;
 
-      span{
-          margin-right: 1rem;
-          display: inline-block;
+      span {
+        margin-right: 1rem;
+        display: inline-block;
       }
     }
 
@@ -84,5 +90,14 @@
       color: $color-primary-dark;
       transform: translateX(1rem);
     }
+  }
+
+  &__checkbox:checked ~ &__background {
+    transform: scale(90);
+  }
+
+  &__checkbox:checked ~ &__nav {
+    opacity: 1;
+    width: 100%;
   }
 }
