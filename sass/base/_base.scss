@@ -1,7 +1,36 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+
+
+html {
+  font-size: 16px;
+
+  // @include respond(phone) {
+  //   font-size: 14px;
+  // } Don't need 
+
+  @include respond(tab-land) {
+    font-size: 15px;
   }
-  
- 
+
+  @include respond(tab-port) {
+    font-size: 14px;
+  }
+
+  @include respond(big-desktop) {
+    font-size: 18px;
+  }
+}
+
+body {
+  padding: 1.5rem;
+  box-sizing: border-box;
+
+  @include respond(tab-port) {
+    padding: 0;
+  }
+}
